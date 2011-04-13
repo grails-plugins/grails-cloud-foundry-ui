@@ -1,0 +1,43 @@
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
+body, td, th, pre, code, select, option, input, textarea {
+	font-family: verdana,arial,sans-serif;
+	font-size: 10px;
+}
+
+.fileTree, .fileTree input, .jstree-dnd-helper, #vakata-contextmenu {
+	font-size: 10px;
+	font-family: Verdana;
+}
+
+#container {
+	overflow: hidden;
+	position: absolute;
+	left: 0;
+}
+
+#fileTree {
+	float: left;
+	width: 300px;
+	height: 400px;
+	overflow: auto;
+	border: 1px solid gray;
+}
+
+#fileContents {
+	float: right;
+	width: 600px;
+	height: 400px;
+	overflow: auto;
+	border: 1px solid gray;
+}
+#fileContents pre {
+	font-size: 13px;
+}
+
+#text {
+	margin-top: 1px;
+}
