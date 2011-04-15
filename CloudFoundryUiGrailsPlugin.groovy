@@ -21,6 +21,13 @@ class CloudFoundryUiGrailsPlugin {
 	String description = 'CloudFoundry UI'
 	String documentation = 'http://grails.org/plugin/cloud-foundry-ui'
 
+	String license = 'Apache 2.0 License'
+	def organization = [ name: 'SpringSource', url: 'http://www.springsource.org/' ]
+	def developers = [
+		 [ name: 'Burt Beckwith', email: 'beckwithb@vmware.com' ] ]
+	def issueManagement = [ system: 'JIRA', url: 'http://jira.grails.org/browse/GPCLOUDFOUNDRYUI' ]
+	def scm = [ url: 'https://github.com/grails-plugins/grails-cloud-foundry-ui' ]
+
 	def dependsOn = [googleVisualization: '0.2.1 > *',
 	                 jquery: '1.4.3 > *',
                     cloudFoundry: '1.0.0.M1 > *']

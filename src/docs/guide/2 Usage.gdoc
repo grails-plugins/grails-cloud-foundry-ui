@@ -1,0 +1,46 @@
+h4. UrlMappings
+
+You'll need to configure some URL mappings in @grails-app/conf/UrlMappings.groovy@ to match what the client UI expects. You can also customize the URLs so they are separate from the main application URLs, e.g. under @/admin/@:
+
+{code}
+"/admin/cfDashboard/$action?"(controller: 'cloudFoundryDashboard')
+
+"/admin/cfDashboard/application/$appName"(controller: 'cloudFoundryDashboard', action: 'application')
+
+"/admin/cfDashboard/service/$serviceName"(controller: 'cloudFoundryDashboard', action: 'service')
+
+"/admin/cfDashboard/files/$appName/$instanceIndex?"(controller: 'cloudFoundryDashboard', action: 'files')
+{code}
+
+Using the @/admin/cfDashboard/@ suffix is merely a suggestion - you can use any value there - but the rest of the mappings should stay as shown.
+
+h4. Applications
+
+You can access all of your deployed applications from the Cloud Foundry UI plugin pages, not just the one that is hosting it. Navigating to @http://your-app-name.cloudfoundry.com/admin/cfDashboard@ you'll see buttons for each application:
+
+!initial.png!
+
+and clicking on one of the application buttons will display current information for that application:
+
+!stats.png!
+
+There are links to the bound services in the top right and to the file viewer in the middle left. The graphical gauges displaying memory, disk, and CPU usage default to auto-update every 5 seconds. Click the "Disable auto-refresh" link to turn this off, and click it again to restart it.
+
+If you have more than one instance of your application deployed you'll get one tab per instance with separate data and file viewer links for each.
+
+h4. Services
+
+If you click the Services button you'll see some information about each bound service:
+
+!services.png!
+
+h4. Files
+
+If you click the file viewer "View" link from the application view you'll see the file viewer:
+
+!fileview.png!
+
+Clicking a file name will display the file contents in the right pane (even if it's binary) and right-clicking on the filename in the tree will present a Download link so you can access the whole file locally:
+
+!download.png!
+

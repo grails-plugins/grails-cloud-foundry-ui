@@ -62,7 +62,8 @@
 		<delete dir='grails-app/taglib'/>
 		<delete dir='grails-app/utils'/>
 		<delete dir='lib'/>
-		<delete dir='src'/>
+		<delete dir='src/groovy'/>
+		<delete dir='src/java'/>
 		<delete dir='test'/>
 		<delete dir='web-app/META-INF'/>
 		<delete dir='web-app/WEB-INF'/>

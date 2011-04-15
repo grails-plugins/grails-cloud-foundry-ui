@@ -15,7 +15,6 @@
 </head>
 
 <body>
-	<div id="grailsLogo"><a href="http://grails.org"><img src="${resource(dir:'images',file:'grails_logo.png',plugin:'none')}" alt="Grails" border="0" /></a></div>
 	<div class="nav">
 		<span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
 		<span class="menuButton"><a class="list" href="${createLink(controller: 'cloudFoundryDashboard', action: 'services')}">Services</a></span>
