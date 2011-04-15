@@ -1,0 +1,2 @@
+The Cloud Foundry UI plugin provides a simple monitoring UI for your applications deployed to Cloud Foundry. It uses the same API as the [Cloud Foundry plugin|http://grails.org/plugin/cloud-foundry] but is more convenient since runs in a web browser. It depends on the Cloud Foundry plugin but doesn't require that you have used it to deploy your application (e.g. you could use the vmc client or STS to deploy).
+

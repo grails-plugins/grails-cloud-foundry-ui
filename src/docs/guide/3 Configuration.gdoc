@@ -1,0 +1,7 @@
+There is only one configuration option for the plugin in addition to those used by the Cloud Foundry plugin, @requireLogin@ and like the others it is specified in Config.groovy:
+
+{table}
+*Property* | *Default* | *Meaning*
+grails.plugin.cloudfoundry. requireLogin | @false@ | if @true@ then prompt the user at runtime for Cloud Foundry credentials rather than storing them in @cloudfoundry-ui.properties@
+{table}
+
