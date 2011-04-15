@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+        <title>4 Security</title>
+        <link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" title="Ref" charset="utf-8"/>
+    </head>
+    <body class="body">
+    <h1><a name="4 Security">4 Security</a></h1>You need to provide the Cloud Foundry API credentials to access data and files from your deployed applications, and there are a few options for this. One is to leave them in <code>Config.groovy</code> since they need to be there to run the command-line scripts. This way they'll be included in the war file and available for use when deployed.<p class="paragraph"/>Another option is to put the username and password values in <code>$HOME/.grails/settings.groovy</code>. This avoids storing the password in source control, and by default will generate a properties file in the war that will be read when deployed for authentication.<p class="paragraph"/>If you'd prefer not to include the username and password in either <code>Config.groovy</code> or the generated properties file, add the configuration option <code>grails.plugin.cloudfoundry.requireLogin = true</code> to <code>Config.groovy</code>. This will avoid generating the properties file and trigger a redirect to a login page in the deployed application when you attempt to access an action that requires API access. This will be in addition to any standard authentication system you are already using, e.g. with the <a href="http://grails.org/plugin/spring-security-core" target="blank">Spring Security plugin</a>.<p class="paragraph"/>
+    
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-16219500-1']);
+	_gaq.push(['_trackPageview']);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+</body>
+</html>

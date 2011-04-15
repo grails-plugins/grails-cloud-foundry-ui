@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+        <title>2 Usage</title>
+        <link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" title="Ref" charset="utf-8"/>
+    </head>
+    <body class="body">
+    <h4>UrlMappings</h4><p class="paragraph"/>You'll need to configure some URL mappings in <code>grails-app/conf/UrlMappings.groovy</code> to match what the client UI expects. You can also customize the URLs so they are separate from the main application URLs, e.g. under <code>/admin/</code>:<p class="paragraph"/><div class="code"><pre><span class="java&#45;quote">"/admin/cfDashboard/$action?"</span>(controller: 'cloudFoundryDashboard')<p class="paragraph"/><span class="java&#45;quote">"/admin/cfDashboard/application/$appName"</span>(controller: 'cloudFoundryDashboard', action: 'application')<p class="paragraph"/><span class="java&#45;quote">"/admin/cfDashboard/service/$serviceName"</span>(controller: 'cloudFoundryDashboard', action: 'service')<p class="paragraph"/><span class="java&#45;quote">"/admin/cfDashboard/files/$appName/$instanceIndex?"</span>(controller: 'cloudFoundryDashboard', action: 'files')</pre></div><p class="paragraph"/>Using the <code>/admin/cfDashboard/</code> suffix is merely a suggestion - you can use any value there - but the rest of the mappings should stay as shown.<p class="paragraph"/><h4>Applications</h4><p class="paragraph"/>You can access all of your deployed applications from the Cloud Foundry UI plugin pages, not just the one that is hosting it. Navigating to <code>http://your-app-name.cloudfoundry.com/admin/cfDashboard</code> you'll see buttons for each application:<p class="paragraph"/><img border="0" class="center" src="../img/initial.png"></img><p class="paragraph"/>and clicking on one of the application buttons will display current information for that application:<p class="paragraph"/><img border="0" class="center" src="../img/stats.png"></img><p class="paragraph"/>There are links to the bound services in the top right and to the file viewer in the middle left. The graphical gauges displaying memory, disk, and CPU usage default to auto-update every 5 seconds. Click the "Disable auto-refresh" link to turn this off, and click it again to restart it.<p class="paragraph"/>If you have more than one instance of your application deployed you'll get one tab per instance with separate data and file viewer links for each.<p class="paragraph"/><h4>Services</h4><p class="paragraph"/>If you click the Services button you'll see some information about each bound service:<p class="paragraph"/><img border="0" class="center" src="../img/services.png"></img><p class="paragraph"/><h4>Files</h4><p class="paragraph"/>If you click the file viewer "View" link from the application view you'll see the file viewer:<p class="paragraph"/><img border="0" class="center" src="../img/fileview.png"></img><p class="paragraph"/>Clicking a file name will display the file contents in the right pane (even if it's binary) and right-clicking on the filename in the tree will present a Download link so you can access the whole file locally:<p class="paragraph"/><img border="0" class="center" src="../img/download.png"></img><p class="paragraph"/>
+    
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-16219500-1']);
+	_gaq.push(['_trackPageview']);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+</body>
+</html>

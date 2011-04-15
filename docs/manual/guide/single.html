@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <title>Cloud Foundry UI Plugin 1.0.0.M1 - Reference Documentation</title>
+        <link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" title="Style" charset="utf-8"/>
+        <link rel="stylesheet" href="../css/pdf.css" type="text/css" media="print" title="PDF" charset="utf-8" />
+    </head>
+    <body class="body">
+        <div id="header">
+            <div class="images"><br/><br/>
+                <a href="http://grails.org" target="_blank"><img alt="The Grails Framework" src="../img/grails.png" border="0"/></a>
+                <span style="right:30px; top:20px; position:absolute;">
+                    <a href="../index.html" target="_top">Frames</a> | <a href="index.html" target="_top">No Frames</a><br/><br/>
+                    <a href="http://springsource.com" target="_blank"><img alt="SpringSource - A Division of VMware" src="../img/springsource-logo.png" border="0"/></a>
+                </span>
+            </div>
+            <div class="message">cloud-foundry-ui</div>
+            <h1>Cloud Foundry UI Plugin - Reference Documentation</h1>
+            <p><strong>Authors:</strong> Burt Beckwith</p>
+            <p><strong>Version:</strong> 1.0.0.M1</p>
+            <em></em>
+        </div>
+
+        <div id="toc">
+            <h2>Table of Contents</h2>
+            <div class="tocItem" style="margin-left:0px"><a href="#1 Introduction to the Cloud Foundry UI Plugin">1 Introduction to the Cloud Foundry UI Plugin</a></div><div class="tocItem" style="margin-left:10px"><a href="#1.1 History">1.1 History</a></div><div class="tocItem" style="margin-left:0px"><a href="#2 Usage">2 Usage</a></div><div class="tocItem" style="margin-left:0px"><a href="#3 Configuration">3 Configuration</a></div><div class="tocItem" style="margin-left:0px"><a href="#4 Security">4 Security</a></div>
+        </div>
+        <div id="content">
+            <h1><a name="1 Introduction to the Cloud Foundry UI Plugin">1 Introduction to the Cloud Foundry UI Plugin</a></h1>The Cloud Foundry UI plugin provides a simple monitoring UI for your applications deployed to Cloud Foundry. It uses the same API as the <a href="http://grails.org/plugin/cloud-foundry" target="blank">Cloud Foundry plugin</a> but is more convenient since runs in a web browser. It depends on the Cloud Foundry plugin but doesn't require that you have used it to deploy your application (e.g. you could use the vmc client or STS to deploy).<p class="paragraph"/><h2><a name="1.1 History">1.1 History</a></h2><h4>History</h4>
+<ul class="star">
+<li>April 14, 2011</li>
+<ul class="star">
+<li>1.0.0.M1 release</li>
+</ul></ul><p class="paragraph"/><h1><a name="2 Usage">2 Usage</a></h1><h4>UrlMappings</h4><p class="paragraph"/>You'll need to configure some URL mappings in <code>grails-app/conf/UrlMappings.groovy</code> to match what the client UI expects. You can also customize the URLs so they are separate from the main application URLs, e.g. under <code>/admin/</code>:<p class="paragraph"/><div class="code"><pre><span class="java&#45;quote">"/admin/cfDashboard/$action?"</span>(controller: 'cloudFoundryDashboard')<p class="paragraph"/><span class="java&#45;quote">"/admin/cfDashboard/application/$appName"</span>(controller: 'cloudFoundryDashboard', action: 'application')<p class="paragraph"/><span class="java&#45;quote">"/admin/cfDashboard/service/$serviceName"</span>(controller: 'cloudFoundryDashboard', action: 'service')<p class="paragraph"/><span class="java&#45;quote">"/admin/cfDashboard/files/$appName/$instanceIndex?"</span>(controller: 'cloudFoundryDashboard', action: 'files')</pre></div><p class="paragraph"/>Using the <code>/admin/cfDashboard/</code> suffix is merely a suggestion - you can use any value there - but the rest of the mappings should stay as shown.<p class="paragraph"/><h4>Applications</h4><p class="paragraph"/>You can access all of your deployed applications from the Cloud Foundry UI plugin pages, not just the one that is hosting it. Navigating to <code>http://your-app-name.cloudfoundry.com/admin/cfDashboard</code> you'll see buttons for each application:<p class="paragraph"/><img border="0" class="center" src="../img/initial.png"></img><p class="paragraph"/>and clicking on one of the application buttons will display current information for that application:<p class="paragraph"/><img border="0" class="center" src="../img/stats.png"></img><p class="paragraph"/>There are links to the bound services in the top right and to the file viewer in the middle left. The graphical gauges displaying memory, disk, and CPU usage default to auto-update every 5 seconds. Click the "Disable auto-refresh" link to turn this off, and click it again to restart it.<p class="paragraph"/>If you have more than one instance of your application deployed you'll get one tab per instance with separate data and file viewer links for each.<p class="paragraph"/><h4>Services</h4><p class="paragraph"/>If you click the Services button you'll see some information about each bound service:<p class="paragraph"/><img border="0" class="center" src="../img/services.png"></img><p class="paragraph"/><h4>Files</h4><p class="paragraph"/>If you click the file viewer "View" link from the application view you'll see the file viewer:<p class="paragraph"/><img border="0" class="center" src="../img/fileview.png"></img><p class="paragraph"/>Clicking a file name will display the file contents in the right pane (even if it's binary) and right-clicking on the filename in the tree will present a Download link so you can access the whole file locally:<p class="paragraph"/><img border="0" class="center" src="../img/download.png"></img><p class="paragraph"/><h1><a name="3 Configuration">3 Configuration</a></h1>There is only one configuration option for the plugin in addition to those used by the Cloud Foundry plugin, <code>requireLogin</code> and like the others it is specified in Config.groovy:<p class="paragraph"/><table class="wiki-table" cellpadding="0" cellspacing="0" border="0"><tr><th><strong class="bold">Property</strong></th><th><strong class="bold">Default</strong></th><th><strong class="bold">Meaning</strong></th></tr><tr class="table-odd"><td>grails.plugin.cloudfoundry. requireLogin</td><td><code>false</code></td><td>if <code>true</code> then prompt the user at runtime for Cloud Foundry credentials rather than storing them in <code>cloudfoundry-ui.properties</code></td></tr></table><p class="paragraph"/><h1><a name="4 Security">4 Security</a></h1>You need to provide the Cloud Foundry API credentials to access data and files from your deployed applications, and there are a few options for this. One is to leave them in <code>Config.groovy</code> since they need to be there to run the command-line scripts. This way they'll be included in the war file and available for use when deployed.<p class="paragraph"/>Another option is to put the username and password values in <code>$HOME/.grails/settings.groovy</code>. This avoids storing the password in source control, and by default will generate a properties file in the war that will be read when deployed for authentication.<p class="paragraph"/>If you'd prefer not to include the username and password in either <code>Config.groovy</code> or the generated properties file, add the configuration option <code>grails.plugin.cloudfoundry.requireLogin = true</code> to <code>Config.groovy</code>. This will avoid generating the properties file and trigger a redirect to a login page in the deployed application when you attempt to access an action that requires API access. This will be in addition to any standard authentication system you are already using, e.g. with the <a href="http://grails.org/plugin/spring-security-core" target="blank">Spring Security plugin</a>.<p class="paragraph"/>
+        </div>
+        <div id="footer">
+             
+        </div>
+    
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-16219500-1']);
+	_gaq.push(['_trackPageview']);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+</body>
+</html>
