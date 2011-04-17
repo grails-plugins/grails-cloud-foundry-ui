@@ -18,7 +18,7 @@ grails.project.dependency.resolution = {
 	dependencies {}
 
 	plugins {
-		build(':maven-publisher:0.7.5') {
+		build(':maven-publisher:0.8.1') {
 			export = false
 		}
 	}
