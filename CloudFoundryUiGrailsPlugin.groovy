@@ -13,13 +13,17 @@
  * limitations under the License.
  */
 class CloudFoundryUiGrailsPlugin {
-	String version = '1.0.0.M1'
+	String version = '1.0.0.M2'
 	String grailsVersion = '1.3.3 > *'
 	String author = 'Burt Beckwith'
 	String authorEmail = 'beckwithb@vmware.com'
 	String title = 'CloudFoundry UI'
 	String description = 'CloudFoundry UI'
 	String documentation = 'http://grails.org/plugin/cloud-foundry-ui'
+	List pluginExcludes = [
+		'docs/**',
+		'src/docs/**'
+	]
 
 	String license = 'Apache 2.0 License'
 	def organization = [ name: 'SpringSource', url: 'http://www.springsource.org/' ]
