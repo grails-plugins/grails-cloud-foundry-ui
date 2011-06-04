@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 class CloudFoundryUiGrailsPlugin {
-	String version = '1.0.0.M2'
+	String version = '1.0'
 	String grailsVersion = '1.3.3 > *'
 	String author = 'Burt Beckwith'
 	String authorEmail = 'beckwithb@vmware.com'
@@ -25,7 +25,7 @@ class CloudFoundryUiGrailsPlugin {
 		'src/docs/**'
 	]
 
-	String license = 'Apache 2.0 License'
+	String license = 'APACHE'
 	def organization = [ name: 'SpringSource', url: 'http://www.springsource.org/' ]
 	def developers = [
 		 [ name: 'Burt Beckwith', email: 'beckwithb@vmware.com' ] ]
