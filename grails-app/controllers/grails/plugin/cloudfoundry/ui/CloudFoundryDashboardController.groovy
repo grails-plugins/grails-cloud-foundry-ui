@@ -118,12 +118,8 @@ class CloudFoundryDashboardController {
 		if (binary) {
 			byte[] bytes = request.cloudFoundryClient.getFile(params.appName,
 				(params.instanceIndex ?: 0).toInteger(), path,
-				new RequestCallback() { void doWithRequest(ClientHttpRequest request) {} },
-				new ResponseExtractor() {
-					byte[] extractData(ClientHttpResponse response) {
-						FileCopyUtils.copyToByteArray response.body
-					}
-				})
+				[doWithRequest: { ClientHttpRequest request -> }] as RequestCallback,
+				[extractData: { ClientHttpResponse response -> FileCopyUtils.copyToByteArray response.body }] as ResponseExtractor)
 
 			response.outputStream << new ByteArrayInputStream(bytes)
 		}
