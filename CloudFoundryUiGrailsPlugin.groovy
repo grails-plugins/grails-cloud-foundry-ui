@@ -25,7 +25,7 @@ class CloudFoundryUiGrailsPlugin {
 		'src/docs/**'
 	]
 
-	String license = 'Apache 2.0 License'
+	String license = 'APACHE'
 	def organization = [ name: 'SpringSource', url: 'http://www.springsource.org/' ]
 	def developers = [
 		 [ name: 'Burt Beckwith', email: 'beckwithb@vmware.com' ] ]
