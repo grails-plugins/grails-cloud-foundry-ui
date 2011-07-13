@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 class CloudFoundryUiGrailsPlugin {
-	String version = '1.0'
+	String version = '1.0.1'
 	String grailsVersion = '1.3.3 > *'
 	String author = 'Burt Beckwith'
 	String authorEmail = 'beckwithb@vmware.com'
@@ -34,5 +34,5 @@ class CloudFoundryUiGrailsPlugin {
 
 	def dependsOn = [googleVisualization: '0.2.1 > *',
 	                 jquery: '1.4.3 > *',
-                    cloudFoundry: '1.0.0.M1 > *']
+                    cloudFoundry: '1.0 > *']
 }
