@@ -14,7 +14,7 @@
  */
 package grails.plugin.cloudfoundry.ui
 
-import com.vmware.appcloud.client.AppCloudClient
+import com.vmware.appcloud.client.CloudFoundryClient
 
 /**
  * Ensures that a configured API client is accessible.
@@ -38,12 +38,12 @@ class CloudFoundryFilters {
 				def client
 				String token = session.cloudFoundryToken
 				if (token) {
-					client = new AppCloudClient(token, cloudControllerUrl)
+					client = new CloudFoundryClient(token, cloudControllerUrl)
 				}
 				else {
 					def credentials = fetchCredentials(cfConfig, session)
 					if (credentials) {
-						client = new AppCloudClient(credentials.username, credentials.password, cloudControllerUrl)
+						client = new CloudFoundryClient(credentials.username, credentials.password, cloudControllerUrl)
 						token = client.login()
 						session.cloudFoundryToken = token
 					}

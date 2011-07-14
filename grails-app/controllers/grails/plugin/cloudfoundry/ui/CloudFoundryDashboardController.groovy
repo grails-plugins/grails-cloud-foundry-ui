@@ -22,9 +22,9 @@ import org.springframework.util.FileCopyUtils
 import org.springframework.web.client.RequestCallback
 import org.springframework.web.client.ResponseExtractor
 
-import com.vmware.appcloud.client.AppCloudException
 import com.vmware.appcloud.client.ApplicationStats
 import com.vmware.appcloud.client.CloudApplication
+import com.vmware.appcloud.client.CloudFoundryException
 import com.vmware.appcloud.client.InstanceStats
 
 /**
@@ -169,7 +169,7 @@ class CloudFoundryDashboardController {
 				}
 			}
 		}
-		catch (AppCloudException ignored) {}
+		catch (CloudFoundryException ignored) {}
 
 		render data as JSON
 	}
