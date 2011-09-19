@@ -14,7 +14,7 @@
  */
 package grails.plugin.cloudfoundry.ui
 
-import com.vmware.appcloud.client.CloudFoundryClient
+import org.cloudfoundry.client.lib.CloudFoundryClient
 
 /**
  * Ensures that a configured API client is accessible.
@@ -49,7 +49,7 @@ class CloudFoundryFilters {
 					}
 					else {
 						session['__CF_REDIRECT_URI__'] = request.forwardURI
-						redirect controller: 'cfLogin'
+						redirect controller: 'cloudFoundryLogin'
 						return false
 					}
 				}

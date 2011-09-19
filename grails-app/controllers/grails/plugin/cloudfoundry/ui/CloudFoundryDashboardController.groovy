@@ -16,16 +16,15 @@ package grails.plugin.cloudfoundry.ui
 
 import grails.converters.JSON
 
+import org.cloudfoundry.client.lib.ApplicationStats
+import org.cloudfoundry.client.lib.CloudApplication
+import org.cloudfoundry.client.lib.CloudFoundryException
+import org.cloudfoundry.client.lib.InstanceStats
 import org.springframework.http.client.ClientHttpRequest
 import org.springframework.http.client.ClientHttpResponse
 import org.springframework.util.FileCopyUtils
 import org.springframework.web.client.RequestCallback
 import org.springframework.web.client.ResponseExtractor
-
-import com.vmware.appcloud.client.ApplicationStats
-import com.vmware.appcloud.client.CloudApplication
-import com.vmware.appcloud.client.CloudFoundryException
-import com.vmware.appcloud.client.InstanceStats
 
 /**
  * Monitoring UI controller.
