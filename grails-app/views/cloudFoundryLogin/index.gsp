@@ -7,7 +7,7 @@
 	text-align:center;
 }
 #login .inner {
-	width: 300px;
+	width: 500px;
 	margin: 0px auto;
 	text-align: left;
 	padding: 10px;
@@ -28,16 +28,16 @@
 	height: 1%;
 }
 #login .inner .cssform input[type='text'] {
-	width: 120px;
+	width: 150px;
 }
 #login .inner .cssform label {
 	font-weight: bold;
 	float: left;
 	margin-left: -105px;
-	width: 100px;
+	width: 150px;
 }
 #login .inner .login_message {color:red;}
-#login .inner .text_ {width:120px;}
+#login .inner .text_ {width:150px;}
 #login .inner .chk {height:12px;}
 </style>
 </head>
